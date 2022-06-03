@@ -1,0 +1,28 @@
+{
+  "name": "tz",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "npm run lint:js",
+    "lintfix": "eslint --fix --ext .js,.vue,.scss --ignore-path .gitignore .",
+    "lint:js": "eslint --ext .js,.vue,.scss --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.14",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.1",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-css-modules": "^2.11.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-vue": "^8.6.0",
+    "sass": "^1.50.0",
+    "vite": "^2.9.2"
+  }
+}
