@@ -1,5 +1,5 @@
 import { createStore } from 'vuex';
-import { loadPosts, loadComments } from './api/server';
+import { loadData } from './api';
 
 export default createStore({
   state: {
@@ -18,20 +18,18 @@ export default createStore({
     setComments(state, comments) {
       state.comments = comments;
     },
-
   },
   actions: {
     async loadPosts(store) {
-      let posts = await loadPosts();
+      let posts = await loadData('posts');
       posts = await Object.keys(posts).map((key) => ({
         ...posts[key],
       }));
       store.commit('setPosts', posts);
     },
     async loadComments(store) {
-      const comments = await loadComments();
+      const comments = await loadData('comments');
       store.commit('setComments', comments);
     },
   },
-
 });

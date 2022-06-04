@@ -22,19 +22,23 @@
         <label for="text">Текст</label>
         <textarea required name="text" id="text" v-model="newPost.text"></textarea>
       </div>
-      <button type="submit" class="add__btn">Отправить</button>
+      <div class="add__wrapper">
+        <button type="submit" class="add__btn">Отправить</button>
+        <div v-if="!formValid" class="add__warning">Минимальная длина каждого поля - 3 символа</div>
+      </div>
     </form>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import { sendPost } from '../api/server';
+import { sendPost } from '../api';
 
 export default {
   data() {
     return {
       newPost: {},
+      formValid: true,
     };
   },
   computed: {
@@ -45,11 +49,14 @@ export default {
   methods: {
     async addPost() {
       this.newPost.id = this.posts.length + 1;
-      const response = await sendPost(this.newPost);
-      if (response.ok) this.$router.push({ name: 'posts' });
-      this.newPost = {};
+      if (this.newPost.name.length > 1 && this.newPost.title.length >= 3 && this.newPost.text.length >= 3) {
+        const response = await sendPost(this.newPost);
+        if (response.ok) this.$router.push({ name: 'posts' });
+        this.newPost = {};
+      } else {
+        this.formValid = false;
+      }
     },
-
   },
 };
 </script>

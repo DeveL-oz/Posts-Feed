@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Posts from './views/Posts.vue';
-import Post from './views/Post.vue';
-import New from './views/New.vue';
+import Posts from './views/PostList.vue';
+import Post from './views/PostDetail.vue';
+import New from './views/PostCreate.vue';
 
 export default createRouter({
   history: createWebHistory(),

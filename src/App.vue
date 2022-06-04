@@ -1,12 +1,12 @@
 <template>
-  <div class="header">
+  <header class="header">
     <div class="container">
       <router-link :to="{ name: 'posts' }">
         <div class="header__title">Posts</div>
       </router-link>
     </div>
-  </div>
-  <div class="nav">
+  </header>
+  <nav class="nav">
     <div class="container">
       <div class="nav__wrapper">
         <router-link :to="{ name: 'posts' }">
@@ -17,15 +17,11 @@
         </router-link>
       </div>
     </div>
-  </div>
-  <div class="main">
+  </nav>
+  <main class="main">
     <div class="container">
       <router-view></router-view>
     </div>
-  </div>
-  <div class="footer"></div>
+  </main>
+  <footer class="footer"></footer>
 </template>
-
-<style lang="scss">
-@import "./css/styles.scss";
-</style>

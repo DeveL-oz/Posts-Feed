@@ -18,12 +18,11 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   created() {
-    this.$store.dispatch('loadPosts');
-    this.$store.dispatch('loadComments');
+    this.loadPosts();
   },
   data() {
     return {
@@ -39,14 +38,15 @@ export default {
       const { author, sort } = this;
       return this.posts.filter((elem) => {
         if (author === '') return true;
-        return elem.name.toLowerCase().indexOf(author.toLowerCase()) > -1;
-      }).sort((d1, d2) => {
+        return elem.name.toLowerCase().includes(author.toLowerCase());
+      }).sort((item1, item2) => {
         if (sort === 0) return true;
-        return (d1.title.toLowerCase() > d2.title.toLowerCase()) ? 1 : -1;
+        return (item1.title.toLowerCase() > item2.title.toLowerCase()) ? 1 : -1;
       });
     },
   },
   methods: {
+    ...mapActions(['loadPosts']),
   },
 };
 </script>

@@ -150,8 +150,6 @@
 
 }
 
-
-
 .posts {
 
   &__item {
@@ -281,6 +279,17 @@
       height: 100px;
       padding: 3px 5px;
     }
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__warning {
+    font-size: 12px;
+    margin-top: 24px;
+    margin-left: 24px;
+    color: red;
   }
 }
 
