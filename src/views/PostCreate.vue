@@ -49,7 +49,7 @@ export default {
   methods: {
     async addPost() {
       this.newPost.id = this.posts.length + 1;
-      if (this.newPost.name.length > 1 && this.newPost.title.length >= 3 && this.newPost.text.length >= 3) {
+      if (this.newPost.name.trim().length > 1 && this.newPost.title.trim().length >= 3 && this.newPost.text.trim().length >= 3) {
         const response = await sendPost(this.newPost);
         if (response.ok) this.$router.push({ name: 'posts' });
         this.newPost = {};
